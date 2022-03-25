@@ -23,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+    
     private static String JSON_URL="https://imdb-api.com/en/API/Top250Movies/k_dgd1pq04";
 
     List<MovieModelClass> movieList;
