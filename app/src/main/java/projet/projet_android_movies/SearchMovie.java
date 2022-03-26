@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.json.JSONArray;
@@ -28,6 +29,9 @@ public class SearchMovie extends AppCompatActivity {
     private static String JSON_URL;
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
+    Button bt1;
+    Button bt2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +47,23 @@ public class SearchMovie extends AppCompatActivity {
 
         EditText editTextTitle = findViewById(R.id.editTextTitle);
         String titleText= editTextTitle.getText().toString();
-        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_dgd1pq04/"+titleText;
-
+        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_7cz4lbc7/"+titleText;
         GetData getData = new GetData();
         getData.execute() ;
 
+        bt1=(Button)findViewById(R.id.buttonSearch);
+        bt2=(Button)findViewById(R.id.buttonSearchAgain);
+        bt1.setVisibility(View.INVISIBLE);
+        bt2.setVisibility(View.VISIBLE);
+
+
+    }
+    public void btn2 (View v){
+
+
+        bt1.setVisibility(View.VISIBLE);
+        bt2.setVisibility(View.INVISIBLE);
+        recreate();
 
 
     }
@@ -128,7 +144,7 @@ public class SearchMovie extends AppCompatActivity {
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
 
 
-        Adaptery adaptery = new Adaptery(this,movieList);
+        Adaptery2 adaptery = new Adaptery2(this,movieList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(adaptery);

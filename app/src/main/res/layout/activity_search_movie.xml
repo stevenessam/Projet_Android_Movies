@@ -17,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
@@ -27,19 +27,41 @@
 
         <EditText
             android:id="@+id/editTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="261dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="btn"
-            android:text="Search" />
-    </LinearLayout>
+            android:text="Search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintStart_toEndOf="@+id/editTextTitle"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/buttonSearchAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_weight="1"
+            android:onClick="btn2"
+            android:text="Search"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/editTextTitle"
+            tools:layout_editor_absoluteY="0dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
