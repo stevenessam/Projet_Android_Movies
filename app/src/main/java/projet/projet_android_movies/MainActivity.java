@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/Top250Movies/k_dgd1pq04";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_dgd1pq04";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         GetData getData = new GetData();
         getData.execute() ;
+    }
+
+
+    public void btn (View v){
+
+        Intent intent = new Intent (MainActivity.this, SearchMovie.class);
+        startActivity(intent);
     }
 
     public  class GetData extends AsyncTask<String,String,String>{
