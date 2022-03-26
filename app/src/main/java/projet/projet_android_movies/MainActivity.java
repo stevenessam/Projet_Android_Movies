@@ -1,6 +1,7 @@
 package projet.projet_android_movies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
-    
+
     private static String JSON_URL="https://imdb-api.com/en/API/Top250Movies/k_dgd1pq04";
 
     List<MovieModelClass> movieList;
@@ -115,8 +116,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
 
+
         Adaptery adaptery = new Adaptery(this,movieList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gr = new GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(gr);
 
         recyclerView.setAdapter(adaptery);
 
