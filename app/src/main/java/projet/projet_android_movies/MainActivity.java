@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_dgd1pq04";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_7cz4lbc7";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
