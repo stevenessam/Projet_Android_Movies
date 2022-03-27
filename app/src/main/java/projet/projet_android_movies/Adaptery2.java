@@ -15,16 +15,17 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder>{
+public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder> {
 
-
+    private final RecyclerViewlnterface recyclerViewlnterface;
     private Context mContext;
     private List<MovieModelClass> mData;
 
 
-    public Adaptery2(Context mContext, List<MovieModelClass> mData) {
+    public Adaptery2(Context mContext, List<MovieModelClass> mData, RecyclerViewlnterface recyclerViewlnterface) {
         this.mContext = mContext;
         this.mData = mData;
+        this.recyclerViewlnterface = recyclerViewlnterface;
     }
 
     @NonNull
@@ -32,10 +33,10 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder>{
     public Adaptery2.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        v= inflater.inflate(R.layout.moivie_item_search,parent,false);
+        v = inflater.inflate(R.layout.moivie_item_search, parent, false);
 
 
-        return new Adaptery2.MyViewHolder(v);
+        return new Adaptery2.MyViewHolder(v, recyclerViewlnterface);
 
     }
 
@@ -56,22 +57,43 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder>{
         return mData.size();
     }
 
-    public  static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         TextView rate;
         ImageView img;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewlnterface recyclerViewlnterface) {
             super(itemView);
 
-            title =itemView.findViewById(R.id.titleTextView);
-            rate =itemView.findViewById(R.id.rateingTextView);
-            img =itemView.findViewById(R.id.imageImageView);
+            title = itemView.findViewById(R.id.titleTextView);
+            rate = itemView.findViewById(R.id.rateingTextView);
+            img = itemView.findViewById(R.id.imageImageView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    if (recyclerViewlnterface != null) {
+
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+
+                            recyclerViewlnterface.onItemClick(pos);
+
+                        }
+
+                    }
+
+
+                }
+            });
 
 
         }
-    }
 
+    }
 }

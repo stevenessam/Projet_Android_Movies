@@ -25,10 +25,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchMovie extends AppCompatActivity {
+public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterface {
     private static String JSON_URL;
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
+
+
+
     Button bt1;
     Button bt2;
 
@@ -124,6 +127,7 @@ public class SearchMovie extends AppCompatActivity {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                     MovieModelClass model = new MovieModelClass();
+                    model.setId(jsonObject1.getString("id"));
                     model.setTitle(jsonObject1.getString("title"));
                     model.setRating(jsonObject1.getString("description"));
                     model.setImg(jsonObject1.getString("image"));
@@ -144,12 +148,19 @@ public class SearchMovie extends AppCompatActivity {
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
 
 
-        Adaptery2 adaptery = new Adaptery2(this,movieList);
+        Adaptery2 adaptery = new Adaptery2(this,movieList,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(adaptery);
 
     }
 
+
+    @Override
+    public void onItemClick(int position) {
+
+        System.out.println(movieList.get(position).getId());
+
+    }
 
 }
