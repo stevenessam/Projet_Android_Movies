@@ -16,13 +16,16 @@ import java.util.List;
 
 public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
+
+    private final RecyclerViewlnterface recyclerViewlnterface;
     private Context mContext;
     private List<MovieModelClass> mData;
 
 
-    public Adaptery(Context mContext, List<MovieModelClass> mData) {
+    public Adaptery(Context mContext, List<MovieModelClass> mData,RecyclerViewlnterface recyclerViewlnterface) {
         this.mContext = mContext;
         this.mData = mData;
+        this.recyclerViewlnterface = recyclerViewlnterface;
     }
 
     @NonNull
@@ -33,7 +36,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         v= inflater.inflate(R.layout.movie_item,parent,false);
 
 
-    return new MyViewHolder(v);
+    return new MyViewHolder(v, recyclerViewlnterface);
 
     }
 
@@ -61,12 +64,32 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         ImageView img;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewlnterface recyclerViewlnterface) {
             super(itemView);
 
             title =itemView.findViewById(R.id.titleTextView);
             rate =itemView.findViewById(R.id.rateingTextView);
             img =itemView.findViewById(R.id.imageImageView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    if (recyclerViewlnterface != null) {
+
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+
+                            recyclerViewlnterface.onItemClick(pos);
+
+                        }
+
+                    }
+
+
+                }
+            });
 
 
         }

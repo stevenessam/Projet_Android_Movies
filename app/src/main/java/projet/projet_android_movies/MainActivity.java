@@ -23,11 +23,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewlnterface{
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_7cz4lbc7";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_aaaaaaaa";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
@@ -126,11 +126,27 @@ public class MainActivity extends AppCompatActivity {
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
 
 
-        Adaptery adaptery = new Adaptery(this,movieList);
+        Adaptery adaptery = new Adaptery(this,movieList,this);
         GridLayoutManager gr = new GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gr);
 
         recyclerView.setAdapter(adaptery);
+
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+
+//        System.out.println(movieList.get(position).getId());
+
+        Intent i = new Intent(MainActivity.this,MoviePage.class);
+
+        i.putExtra("Title",movieList.get(position).getTitle());
+        i.putExtra("Img",movieList.get(position).getImg());
+
+        startActivity(i);
+
 
     }
 
