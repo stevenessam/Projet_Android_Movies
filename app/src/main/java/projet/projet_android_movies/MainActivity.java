@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
         GetData getData = new GetData();
         getData.execute() ;
+
     }
 
 
