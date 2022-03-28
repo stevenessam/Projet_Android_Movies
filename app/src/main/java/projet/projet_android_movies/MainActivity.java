@@ -1,14 +1,13 @@
 package projet.projet_android_movies;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
     private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_7cz4lbc7";
 
-    List<MovieModelClass> movieList;
+    List<MovieModelClass>   movieList;
     RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
