@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_h2ntsk74";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_7cz4lbc7";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 
         Adaptery adaptery = new Adaptery(this,movieList,this);
-        GridLayoutManager gr = new GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false);
+        GridLayoutManager gr = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(gr);
 
         recyclerView.setAdapter(adaptery);
