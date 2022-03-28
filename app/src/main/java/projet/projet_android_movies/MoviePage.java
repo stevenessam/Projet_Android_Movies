@@ -3,7 +3,9 @@ package projet.projet_android_movies;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class MoviePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         context=this;
         String title = getIntent().getStringExtra("Title");
         String image = getIntent().getStringExtra("Img");
@@ -26,5 +29,16 @@ public class MoviePage extends AppCompatActivity {
                 .load(image)
                 .into(imgV);
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
