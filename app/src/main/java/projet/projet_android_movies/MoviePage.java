@@ -75,7 +75,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_h2ntsk74/" + URLEncoder.encode(name, "utf-8"));
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_dgd1pq04/" + URLEncoder.encode(name, "utf-8"));
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();

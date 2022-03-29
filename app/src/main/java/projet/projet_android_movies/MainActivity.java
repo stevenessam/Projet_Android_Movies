@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_h2ntsk74";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_dgd1pq04";
 
     List<MovieModelClass>   movieList;
     RecyclerView recyclerView;
