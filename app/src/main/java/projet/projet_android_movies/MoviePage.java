@@ -33,6 +33,7 @@ public class MoviePage extends AppCompatActivity {
         setContentView(R.layout.activity_movie_page);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         context=this;
+        String id = getIntent().getStringExtra("Id");
         String title = getIntent().getStringExtra("Title");
         String image = getIntent().getStringExtra("Img");
         TextView textV=findViewById(R.id.textViewName);
@@ -41,9 +42,9 @@ public class MoviePage extends AppCompatActivity {
         Glide.with(context)
                 .load(image)
                 .into(imgV);
-
+       String data = id;
         RequestTask requestTask = new RequestTask();
-        requestTask.execute("tt1375666");
+        requestTask.execute(data);
 
 
 

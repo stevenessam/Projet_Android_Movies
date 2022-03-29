@@ -162,7 +162,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 //        System.out.println(movieList.get(position).getId());
 
         Intent i = new Intent(SearchMovie.this,MoviePage.class);
-
+        i.putExtra("Id",movieList.get(position).getId());
         i.putExtra("Title",movieList.get(position).getTitle());
         i.putExtra("Img",movieList.get(position).getImg());
         startActivity(i);

@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                     MovieModelClass model = new MovieModelClass();
+                    model.setId(jsonObject1.getString("id"));
                     model.setTitle(jsonObject1.getString("title"));
                     model.setRating(jsonObject1.getString("imDbRating"));
                     model.setImg(jsonObject1.getString("image"));
@@ -141,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 //        System.out.println(movieList.get(position).getId());
 
         Intent i = new Intent(MainActivity.this,MoviePage.class);
-
+        i.putExtra("Id",movieList.get(position).getId());
         i.putExtra("Title",movieList.get(position).getTitle());
         i.putExtra("Img",movieList.get(position).getImg());
 
