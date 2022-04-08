@@ -82,7 +82,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_h2ntsk74/" + name+"/Trailer,");
+                URL url = new URL("https://imdb-api.com/fr/API/Title/k_h2ntsk74/" + name+"/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
@@ -110,7 +110,8 @@ public class MoviePage extends AppCompatActivity {
         private String decodeJSON(JSONObject jso) throws Exception {
             String response = "";
 
-            String jsoid = jso.getString("plot");
+       //     String jsoid = jso.getString("plot");
+            String jsoid = jso.getString("plotLocal");
             response += jsoid;
 
             JSONObject js = jso.getJSONObject("trailer");
