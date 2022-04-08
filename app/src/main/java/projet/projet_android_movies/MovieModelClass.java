@@ -6,13 +6,23 @@ public class MovieModelClass {
     String description;
     String rating;
     String img;
+    String video;
 
-    public MovieModelClass(String id, String title, String description, String rating, String img) {
+    public MovieModelClass(String id, String title, String description, String rating, String img, String video) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.rating = rating;
         this.img = img;
+        this.video = video;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public String getId() {

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,10 +25,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 public class MoviePage extends AppCompatActivity {
     Context context;
     TextView textViewName2;
+    String link;
+    ArrayList<MovieModelClass> movieList = new ArrayList<MovieModelClass>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +48,7 @@ public class MoviePage extends AppCompatActivity {
         Glide.with(context)
                 .load(image)
                 .into(imgV);
-       String data = id;
+        String data = id;
         RequestTask requestTask = new RequestTask();
         requestTask.execute(data);
 
@@ -76,7 +82,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_dgd1pq04/" + URLEncoder.encode(name, "utf-8"));
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_h2ntsk74/" + name+"/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
@@ -105,22 +111,39 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
 
             String jsoid = jso.getString("plot");
-            response = jsoid;
+            response += jsoid;
+
+            JSONObject js = jso.getJSONObject("trailer");
+            String jsoLink = js.getString("link");
+            response += "---" + jsoLink;
+
 
             return response;
         }
         // Méthode appelée lorsque la tâche de fond sera terminée
 //  Affiche le résultat
         protected void onPostExecute(String result) {
+
+            String[] parts = result.split("---");
+            String descPlot = parts[0];
+             link = parts[1];
+
             textViewName2 =findViewById(R.id.textViewName2);
-            textViewName2.setText(result);
+            textViewName2.setText(descPlot);
+
+
         }
 
     }
 
 
 
+    public void btnVideo (View v){
 
+        Intent browse = new Intent( Intent.ACTION_VIEW , Uri.parse( link) );
+
+        startActivity( browse );
+    }
 
 
 
