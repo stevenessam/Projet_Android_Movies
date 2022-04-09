@@ -45,7 +45,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
 
         holder.rate.setText(mData.get(position).getRating());
-
+        holder.title.setText(mData.get(position).getTitle());
         Glide.with(mContext)
                 .load(mData.get(position).getImg())
                 .into(holder.img);
@@ -59,7 +59,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
     public  static class MyViewHolder extends RecyclerView.ViewHolder{
 
-
+        TextView title;
         TextView rate;
         ImageView img;
 
@@ -67,7 +67,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView, RecyclerViewlnterface recyclerViewlnterface) {
             super(itemView);
 
-
+            title =itemView.findViewById(R.id.titleTextView);
             rate =itemView.findViewById(R.id.rateingTextView);
             img =itemView.findViewById(R.id.imageImageView);
             itemView.setOnClickListener(new View.OnClickListener() {
