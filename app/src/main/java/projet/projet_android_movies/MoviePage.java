@@ -87,7 +87,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/fr/API/Title/k_dgd1pq04/" + name+"/Trailer,");
+                URL url = new URL("https://imdb-api.com/fr/API/Title/k_62i6n8or/" + name+"/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
@@ -132,6 +132,15 @@ public class MoviePage extends AppCompatActivity {
             String jsoYear = jso.getString("year");
             response += "---" + jsoYear;
 
+            String jsoDirectors = jso.getString("directors");
+            response += "---" + jsoDirectors;
+
+            String jsocontentRating = jso.getString("contentRating");
+            response += "---" + jsocontentRating;
+
+            String jsoDgenres = jso.getString("genres");
+            response += "---" + jsoDgenres;
+
             return response;
         }
         // Méthode appelée lorsque la tâche de fond sera terminée
@@ -144,6 +153,9 @@ public class MoviePage extends AppCompatActivity {
             String rateM = parts[2];
             String movieH = parts[3];
             String movieY = parts[4];
+            String movieD = parts[5];
+            String movieAR = parts[6];
+            String movieG = parts[7];
 
             textViewName2 =findViewById(R.id.textViewName2);
             textViewName2.setText(descPlot);
@@ -153,6 +165,12 @@ public class MoviePage extends AppCompatActivity {
             textVHours.setText(movieH);
             TextView textVYear=findViewById(R.id.yearM);
             textVYear.setText(movieY);
+            TextView textVDirector=findViewById(R.id.director);
+            textVDirector.setText(movieD);
+            TextView textVageRat=findViewById(R.id.ageRat);
+            textVageRat.setText(movieAR);
+            TextView textVgenre=findViewById(R.id.genre);
+            textVgenre.setText(movieG);
 
 
         }

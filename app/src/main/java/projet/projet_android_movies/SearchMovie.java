@@ -82,7 +82,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
         EditText editTextTitle = findViewById(R.id.editTextTitle);
         String titleText= editTextTitle.getText().toString();
-        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_dgd1pq04/"+titleText;
+        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_62i6n8or/"+titleText;
         GetData getData = new GetData();
         getData.execute() ;
 

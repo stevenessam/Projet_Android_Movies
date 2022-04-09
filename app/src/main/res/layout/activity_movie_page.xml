@@ -8,106 +8,225 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="TextView"
+                android:layout_marginBottom="10dp"
                 android:textSize="34sp"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:id="@+id/hoursM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="TextView"
-                android:textSize="16sp"
-                android:padding="10dp"/>
-
-
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/yearM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="TextView"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
                 android:textSize="16sp"
-                android:padding="10dp"/>
+                android:textStyle="bold"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="405dp"
-                android:layout_marginBottom="20dp"
-                tools:srcCompat="@tools:sample/avatars"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Rating"
-                android:layout_marginBottom="20dp"
-                android:textSize="34sp" />
-
-            <TextView
-                android:id="@+id/rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="TextView"
-                android:textSize="16sp"
-                android:padding="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Movie Trailer"
-                android:layout_marginBottom="20dp"
-                android:textSize="34sp" />
-
-            <ImageButton
-                android:id="@+id/btn"
+                tools:srcCompat="@tools:sample/avatars" />
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-
-                android:layout_marginBottom="20dp"
-                android:onClick="btnVideo"
-                android:src="@drawable/ic_yotube"
-               />
-
-            <TextView
                 android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:text="Description"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="TextView"
+                android:padding="10dp"
                 android:textSize="16sp"
-                android:padding="10dp"/>
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Information"
+                android:textSize="34sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/rateVide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="RATING"
+                    android:textSize="17sp"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/genreVide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rateVide"
+                    android:textSize="17sp"
+                    android:text="GENRES"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+             />
+
+                <TextView
+                    android:id="@+id/runVide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/genreVide"
+                    android:textSize="17sp"
+                    android:text="RUNTIME"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/ageVide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/runVide"
+                    android:textSize="17sp"
+                    android:text="AGE RATING"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                     />
+
+                <TextView
+                    android:id="@+id/direcVide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ageVide"
+                    android:textSize="17sp"
+                    android:text="DIRECTOR"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
 
+                <TextView
+                    android:id="@+id/genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rating"
+                    android:layout_alignParentRight="true"
+                    android:textSize="17sp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold"
+                     />
 
 
+                <TextView
+                    android:id="@+id/hoursM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/genre"
+                    android:layout_alignParentRight="true"
+                    android:textSize="17sp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/ageRat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hoursM"
+                    android:layout_alignParentRight="true"
+                    android:textSize="17sp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/director"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ageRat"
+                    android:layout_alignParentRight="true"
+                    android:textSize="17sp"
+                    android:layout_marginRight="5dp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Movie Trailer"
+                android:textSize="34sp"
+                android:textStyle="bold"/>
+
+            <ImageButton
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:onClick="btnVideo"
+                android:src="@drawable/ic_yotube"
+                />
 
 
         </LinearLayout>
