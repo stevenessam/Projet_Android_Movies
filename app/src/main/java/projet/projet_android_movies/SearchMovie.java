@@ -1,5 +1,6 @@
 package projet.projet_android_movies;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +43,34 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_movie);
+
+
+
+        BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
+        bNV.setSelectedItemId(R.id.searchMovie);
+        bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.mainActivity:
+                        startActivity(new Intent (getApplicationContext()
+                                ,MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.searchMovie:
+                        startActivity(new Intent(getApplicationContext(),SearchMovie.class));
+                        overridePendingTransition( 0, 0);
+                        return true;
+
+
+                }
+
+                return false;
+            }
+        });
+
+
+
 
         movieList= new ArrayList<>();
         recyclerView= findViewById(R.id.recyclerView);

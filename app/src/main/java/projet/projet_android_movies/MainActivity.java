@@ -3,11 +3,15 @@ package projet.projet_android_movies;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,11 +38,39 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
+        bNV.setSelectedItemId(R.id.mainActivity);
+        bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.mainActivity:
+                        startActivity(new Intent (getApplicationContext()
+                                ,MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.searchMovie:
+                        startActivity(new Intent(getApplicationContext(),SearchMovie.class));
+                        overridePendingTransition( 0, 0);
+                        return true;
+
+
+                }
+
+                return false;
+            }
+        });
+
         movieList= new ArrayList<>();
         recyclerView= findViewById(R.id.recyclerView);
 
+
         GetData getData = new GetData();
         getData.execute() ;
+
+
 
     }
 
