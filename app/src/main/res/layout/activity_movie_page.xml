@@ -14,38 +14,99 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="TextView"
+                android:textSize="34sp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/hoursM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+
+
+            <TextView
+                android:id="@+id/yearM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="405dp"
-                tools:srcCompat="@tools:sample/avatars" />
-
+                android:layout_marginBottom="20dp"
+                tools:srcCompat="@tools:sample/avatars"
+                />
 
             <TextView
-                android:id="@+id/textViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Rating"
+                android:layout_marginBottom="20dp"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:text="TextView"
-                android:textSize="34sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"/>
+                android:textSize="16sp"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Movie Trailer"
+                android:layout_marginBottom="20dp"
+                android:textSize="34sp" />
+
+            <ImageButton
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+
+                android:layout_marginBottom="20dp"
+                android:onClick="btnVideo"
+                android:src="@drawable/ic_yotube"
+               />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Description"
+                android:textSize="34sp" />
+
             <TextView
                 android:id="@+id/textViewName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_marginBottom="20dp"
                 android:text="TextView"
-                android:textSize="16sp" />
-
-
-            <Button
-                android:id="@+id/btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Video"
                 android:textSize="16sp"
-                android:onClick="btnVideo"/>
+                android:padding="10dp"/>
+
+
+
 
 
 

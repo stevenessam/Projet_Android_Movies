@@ -197,6 +197,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         i.putExtra("Id",movieList.get(position).getId());
         i.putExtra("Title",movieList.get(position).getTitle());
         i.putExtra("Img",movieList.get(position).getImg());
+
         startActivity(i);
 
 

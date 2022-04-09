@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -42,9 +43,13 @@ public class MoviePage extends AppCompatActivity {
         String id = getIntent().getStringExtra("Id");
         String title = getIntent().getStringExtra("Title");
         String image = getIntent().getStringExtra("Img");
+        String rating = getIntent().getStringExtra("Rate");
         TextView textV=findViewById(R.id.textViewName);
+
         ImageView imgV = findViewById(R.id.imageView);
         textV.setText(title);
+
+
         Glide.with(context)
                 .load(image)
                 .into(imgV);
@@ -118,6 +123,14 @@ public class MoviePage extends AppCompatActivity {
             String jsoLink = js.getString("link");
             response += "---" + jsoLink;
 
+            String jsoRate = jso.getString("imDbRating");
+            response += "---" + jsoRate;
+
+            String jsoHours = jso.getString("runtimeStr");
+            response += "---" + jsoHours;
+
+            String jsoYear = jso.getString("year");
+            response += "---" + jsoYear;
 
             return response;
         }
@@ -128,9 +141,18 @@ public class MoviePage extends AppCompatActivity {
             String[] parts = result.split("---");
             String descPlot = parts[0];
              link = parts[1];
+            String rateM = parts[2];
+            String movieH = parts[3];
+            String movieY = parts[4];
 
             textViewName2 =findViewById(R.id.textViewName2);
             textViewName2.setText(descPlot);
+            TextView textVRate=findViewById(R.id.rating);
+            textVRate.setText(rateM);
+            TextView textVHours=findViewById(R.id.hoursM);
+            textVHours.setText(movieH);
+            TextView textVYear=findViewById(R.id.yearM);
+            textVYear.setText(movieY);
 
 
         }
