@@ -8,7 +8,8 @@
         />
     <item android:title="Search"
         android:id="@+id/searchMovie"
-        android:icon="@drawable/ic_search"/>
+        android:icon="@drawable/ic_search"
+        />
 
 
 </menu>
