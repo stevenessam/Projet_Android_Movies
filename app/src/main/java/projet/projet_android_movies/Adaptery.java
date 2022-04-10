@@ -22,7 +22,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
     private List<MovieModelClass> mData;
 
 
-    public Adaptery(Context mContext, List<MovieModelClass> mData,RecyclerViewlnterface recyclerViewlnterface) {
+    public Adaptery(Context mContext, List<MovieModelClass> mData, RecyclerViewlnterface recyclerViewlnterface) {
         this.mContext = mContext;
         this.mData = mData;
         this.recyclerViewlnterface = recyclerViewlnterface;
@@ -33,10 +33,10 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        v= inflater.inflate(R.layout.movie_item,parent,false);
+        v = inflater.inflate(R.layout.movie_item, parent, false);
 
 
-    return new MyViewHolder(v, recyclerViewlnterface);
+        return new MyViewHolder(v, recyclerViewlnterface);
 
     }
 
@@ -57,7 +57,7 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         return mData.size();
     }
 
-    public  static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         TextView rate;
@@ -67,9 +67,9 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView, RecyclerViewlnterface recyclerViewlnterface) {
             super(itemView);
 
-            title =itemView.findViewById(R.id.titleTextView);
-            rate =itemView.findViewById(R.id.rateingTextView);
-            img =itemView.findViewById(R.id.imageImageView);
+            title = itemView.findViewById(R.id.titleTextView);
+            rate = itemView.findViewById(R.id.rateingTextView);
+            img = itemView.findViewById(R.id.imageImageView);
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override

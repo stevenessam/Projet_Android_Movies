@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -33,6 +34,7 @@ public class Settings extends AppCompatActivity {
     int NightMode;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +57,9 @@ public class Settings extends AppCompatActivity {
         Switch switch1 = findViewById(R.id.switch1);
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }else{
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
@@ -88,7 +90,8 @@ public class Settings extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
     }
-//------------------------------------Save name-------------------------------------------------------
+
+    //------------------------------------Save name-------------------------------------------------------
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -109,11 +112,7 @@ public class Settings extends AppCompatActivity {
     }
 
 
-
 //------------------------------------Save name-------------------------------------------------------
-
-
-
 
 
     @Override
@@ -131,7 +130,7 @@ public class Settings extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;

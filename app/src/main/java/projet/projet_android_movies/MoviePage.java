@@ -47,12 +47,12 @@ public class MoviePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_page);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        context=this;
+        context = this;
         String id = getIntent().getStringExtra("Id");
         String title = getIntent().getStringExtra("Title");
         String image = getIntent().getStringExtra("Img");
         String rating = getIntent().getStringExtra("Rate");
-        TextView textV=findViewById(R.id.textViewName);
+        TextView textV = findViewById(R.id.textViewName);
 
         ImageView imgV = findViewById(R.id.imageView);
         textV.setText(title);
@@ -69,9 +69,10 @@ public class MoviePage extends AppCompatActivity {
 
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
@@ -89,19 +90,20 @@ public class MoviePage extends AppCompatActivity {
             String response = requete(name[0]);
             return response;
         }
+
         private String requete(String name) {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_b839wwcj/" + name+"/Trailer,");
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_b839wwcj/" + name + "/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String ligne = bufferedReader.readLine() ;
-                while (ligne!= null){
-                    response+=ligne;
+                String ligne = bufferedReader.readLine();
+                while (ligne != null) {
+                    response += ligne;
                     ligne = bufferedReader.readLine();
                 }
                 JSONObject toDecode = new JSONObject(response);
@@ -149,13 +151,14 @@ public class MoviePage extends AppCompatActivity {
 
             return response;
         }
+
         // Méthode appelée lorsque la tâche de fond sera terminée
 //  Affiche le résultat
         protected void onPostExecute(String result) {
 
             String[] parts = result.split("---");
             String descPlot = parts[0];
-             link = parts[1];
+            link = parts[1];
             String rateM = parts[2];
             String movieH = parts[3];
             String movieY = parts[4];
@@ -163,25 +166,25 @@ public class MoviePage extends AppCompatActivity {
             String movieAR = parts[6];
             String movieG = parts[7];
 
-            textViewName2 =findViewById(R.id.textViewName2);
+            textViewName2 = findViewById(R.id.textViewName2);
             textViewName2.setText(descPlot);
 
-            textVRate=findViewById(R.id.rating);
+            textVRate = findViewById(R.id.rating);
             textVRate.setText(rateM);
 
-            textVHours=findViewById(R.id.hoursM);
+            textVHours = findViewById(R.id.hoursM);
             textVHours.setText(movieH);
 
-            textVYear=findViewById(R.id.yearM);
+            textVYear = findViewById(R.id.yearM);
             textVYear.setText(movieY);
 
-            textVDirector=findViewById(R.id.director);
+            textVDirector = findViewById(R.id.director);
             textVDirector.setText(movieD);
 
-            textVageRat=findViewById(R.id.ageRat);
+            textVageRat = findViewById(R.id.ageRat);
             textVageRat.setText(movieAR);
 
-            textVgenre=findViewById(R.id.genre);
+            textVgenre = findViewById(R.id.genre);
             textVgenre.setText(movieG);
 
 
@@ -190,15 +193,12 @@ public class MoviePage extends AppCompatActivity {
     }
 
 
+    public void btnVideo(View v) {
 
-    public void btnVideo (View v){
+        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
 
-        Intent browse = new Intent( Intent.ACTION_VIEW , Uri.parse( link) );
-
-        startActivity( browse );
+        startActivity(browse);
     }
-
-
 
 
 }

@@ -36,7 +36,6 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
     RecyclerView recyclerView;
 
 
-
     Button bt1;
     Button bt2;
 
@@ -48,20 +47,20 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
 
-        BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
+        BottomNavigationView bNV = findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.searchMovie);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.mainActivity:
-                        startActivity(new Intent (getApplicationContext()
-                                ,MainActivity.class));
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchMovie:
-                        startActivity(new Intent(getApplicationContext(),SearchMovie.class));
-                        overridePendingTransition( 0, 0);
+                        startActivity(new Intent(getApplicationContext(), SearchMovie.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
 
@@ -72,30 +71,29 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         });
 
 
-
-
-        movieList= new ArrayList<>();
-        recyclerView= findViewById(R.id.recyclerView);
-
+        movieList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
 
 
     }
-    public void btn (View v){
+
+    public void btn(View v) {
 
         EditText editTextTitle = findViewById(R.id.editTextTitle);
-        String titleText= editTextTitle.getText().toString();
-        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_b839wwcj/"+titleText;
+        String titleText = editTextTitle.getText().toString();
+        JSON_URL = "https://imdb-api.com/en/API/SearchMovie/k_b839wwcj/" + titleText;
         GetData getData = new GetData();
-        getData.execute() ;
+        getData.execute();
 
-        bt1=(Button)findViewById(R.id.buttonSearch);
-        bt2=(Button)findViewById(R.id.buttonSearchAgain);
+        bt1 = (Button) findViewById(R.id.buttonSearch);
+        bt2 = (Button) findViewById(R.id.buttonSearchAgain);
         bt1.setVisibility(View.INVISIBLE);
         bt2.setVisibility(View.VISIBLE);
 
 
     }
-    public void btn2 (View v){
+
+    public void btn2(View v) {
 
 
         bt1.setVisibility(View.VISIBLE);
@@ -105,7 +103,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
     }
 
-    public  class GetData extends AsyncTask<String,String,String> {
+    public class GetData extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -143,7 +141,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
 
             }
@@ -170,19 +168,19 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
                 }
 
-            }catch (JSONException e){
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            PutDataIntoRecyclerView( movieList);
+            PutDataIntoRecyclerView(movieList);
 
         }
     }
 
-    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
+    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
 
 
-        Adaptery2 adaptery = new Adaptery2(this,movieList,this);
+        Adaptery2 adaptery = new Adaptery2(this, movieList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(adaptery);
@@ -195,10 +193,10 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
 //        System.out.println(movieList.get(position).getId());
 
-        Intent i = new Intent(SearchMovie.this,MoviePage.class);
-        i.putExtra("Id",movieList.get(position).getId());
-        i.putExtra("Title",movieList.get(position).getTitle());
-        i.putExtra("Img",movieList.get(position).getImg());
+        Intent i = new Intent(SearchMovie.this, MoviePage.class);
+        i.putExtra("Id", movieList.get(position).getId());
+        i.putExtra("Title", movieList.get(position).getTitle());
+        i.putExtra("Img", movieList.get(position).getImg());
 
         startActivity(i);
 

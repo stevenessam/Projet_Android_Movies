@@ -29,14 +29,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewlnterface{
+public class MainActivity extends AppCompatActivity implements RecyclerViewlnterface {
 
 
+    private static String JSON_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_b839wwcj";
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_b839wwcj";
-
-    List<MovieModelClass>   movieList;
+    List<MovieModelClass> movieList;
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +45,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
 
-        BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
+        BottomNavigationView bNV = findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.mainActivity);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.mainActivity:
-                        startActivity(new Intent (getApplicationContext()
-                                ,MainActivity.class));
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.searchMovie:
-                        startActivity(new Intent(getApplicationContext(),SearchMovie.class));
-                        overridePendingTransition( 0, 0);
+                        startActivity(new Intent(getApplicationContext(), SearchMovie.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
 
@@ -68,55 +68,46 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
             }
         });
 
-        movieList= new ArrayList<>();
-        recyclerView= findViewById(R.id.recyclerView);
+        movieList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
 
 
         GetData getData = new GetData();
-        getData.execute() ;
-
+        getData.execute();
 
 
     }
 
 
-
-
-
-
-
     @Override
-    public boolean onCreateOptionsMenu (Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item,menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
-}
-
+    }
 
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-            int id = item.getItemId();
-            if (id==R.id.action_settings){
-                Intent intent = new Intent( MainActivity.this,Settings.class);
-                startActivity(intent); ;
-                return true;
-            }
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, Settings.class);
+            startActivity(intent);
+            ;
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
 
+    public void btn(View v) {
 
-
-
-    public void btn (View v){
-
-        Intent intent = new Intent (MainActivity.this, SearchMovie.class);
+        Intent intent = new Intent(MainActivity.this, SearchMovie.class);
         startActivity(intent);
     }
 
-    public  class GetData extends AsyncTask<String,String,String>{
+    public class GetData extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -154,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
 
             }
@@ -181,21 +172,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
                 }
 
-            }catch (JSONException e){
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            PutDataIntoRecyclerView( movieList);
+            PutDataIntoRecyclerView(movieList);
 
         }
     }
 
 
-    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList){
+    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
 
 
-        Adaptery adaptery = new Adaptery(this,movieList,this);
-        GridLayoutManager gr = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
+        Adaptery adaptery = new Adaptery(this, movieList, this);
+        GridLayoutManager gr = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gr);
 
         recyclerView.setAdapter(adaptery);
@@ -208,17 +199,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 //        System.out.println(movieList.get(position).getId());
 
-        Intent i = new Intent(MainActivity.this,MoviePage.class);
-        i.putExtra("Id",movieList.get(position).getId());
-        i.putExtra("Title",movieList.get(position).getTitle());
-        i.putExtra("Img",movieList.get(position).getImg());
+        Intent i = new Intent(MainActivity.this, MoviePage.class);
+        i.putExtra("Id", movieList.get(position).getId());
+        i.putExtra("Title", movieList.get(position).getTitle());
+        i.putExtra("Img", movieList.get(position).getImg());
 
         startActivity(i);
 
 
     }
-
-
 
 
 }
