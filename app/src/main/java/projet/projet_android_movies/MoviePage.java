@@ -116,7 +116,7 @@ public class MoviePage extends AppCompatActivity {
             try {
                 HttpURLConnection connection = null;
                 //name est la variable qui va prendre le titre du film
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_k6eancl2/" + name + "/Trailer,");
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_dl23ichl/" + name + "/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
