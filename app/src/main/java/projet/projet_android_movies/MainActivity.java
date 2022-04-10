@@ -32,7 +32,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements RecyclerViewlnterface {
 
 
-    private static String JSON_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_b839wwcj";
+    private static String JSON_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_k6eancl2";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
@@ -60,10 +60,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
                         startActivity(new Intent(getApplicationContext(), SearchMovie.class));
                         overridePendingTransition(0, 0);
                         return true;
-
-
                 }
-
                 return false;
             }
         });
@@ -71,20 +68,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         movieList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
 
-
         GetData getData = new GetData();
         getData.execute();
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -93,13 +85,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         if (id == R.id.action_settings) {
             Intent intent = new Intent(MainActivity.this, Settings.class);
             startActivity(intent);
-            ;
+
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     public void btn(View v) {
 
@@ -108,10 +98,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
     }
 
     public class GetData extends AsyncTask<String, String, String> {
-
         @Override
         protected String doInBackground(String... strings) {
-
             String current = "";
             try {
                 URL url;
@@ -128,11 +116,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
                         current += (char) data;
                         data = isr.read();
-
                     }
                     return current;
-
-
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -140,18 +125,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
                 } finally {
                     if (urlConnection != null) {
-
                         urlConnection.disconnect();
-
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-
             }
             return current;
         }
-
 
         @Override
         protected void onPostExecute(String s) {
@@ -167,46 +148,31 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
                     model.setTitle(jsonObject1.getString("title"));
                     model.setRating(jsonObject1.getString("imDbRating"));
                     model.setImg(jsonObject1.getString("image"));
-
                     movieList.add(model);
-
                 }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             PutDataIntoRecyclerView(movieList);
-
         }
     }
 
-
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
-
 
         Adaptery adaptery = new Adaptery(this, movieList, this);
         GridLayoutManager gr = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gr);
-
         recyclerView.setAdapter(adaptery);
 
     }
 
-
     @Override
     public void onItemClick(int position) {
-
-//        System.out.println(movieList.get(position).getId());
-
         Intent i = new Intent(MainActivity.this, MoviePage.class);
         i.putExtra("Id", movieList.get(position).getId());
         i.putExtra("Title", movieList.get(position).getTitle());
         i.putExtra("Img", movieList.get(position).getImg());
-
         startActivity(i);
-
-
     }
 
 

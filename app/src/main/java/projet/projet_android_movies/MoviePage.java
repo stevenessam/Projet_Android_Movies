@@ -64,10 +64,9 @@ public class MoviePage extends AppCompatActivity {
                 .load(image)
                 .into(imgV);
         String data = id;
+        
         RequestTask requestTask = new RequestTask();
         requestTask.execute(data);
-
-
     }
 
     @Override
@@ -82,10 +81,8 @@ public class MoviePage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     private class RequestTask extends AsyncTask<String, String, String> {
-        // Le corps de la tâche asynchrone (exécuté en tâche de fond)
-//  lance la requète
+
         protected String doInBackground(String... name) {
             String response = requete(name[0]);
             return response;
@@ -95,7 +92,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_b839wwcj/" + name + "/Trailer,");
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_k6eancl2/" + name + "/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();
@@ -152,8 +149,6 @@ public class MoviePage extends AppCompatActivity {
             return response;
         }
 
-        // Méthode appelée lorsque la tâche de fond sera terminée
-//  Affiche le résultat
         protected void onPostExecute(String result) {
 
             String[] parts = result.split("---");
@@ -186,19 +181,11 @@ public class MoviePage extends AppCompatActivity {
 
             textVgenre = findViewById(R.id.genre);
             textVgenre.setText(movieG);
-
-
         }
-
     }
-
 
     public void btnVideo(View v) {
-
         Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-
         startActivity(browse);
     }
-
-
 }

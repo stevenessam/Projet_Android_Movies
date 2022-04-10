@@ -21,7 +21,6 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder> {
     private Context mContext;
     private List<MovieModelClass> mData;
 
-
     public Adaptery2(Context mContext, List<MovieModelClass> mData, RecyclerViewlnterface recyclerViewlnterface) {
         this.mContext = mContext;
         this.mData = mData;
@@ -34,8 +33,6 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder> {
         View v;
         LayoutInflater inflater = LayoutInflater.from(mContext);
         v = inflater.inflate(R.layout.moivie_item_search, parent, false);
-
-
         return new Adaptery2.MyViewHolder(v, recyclerViewlnterface);
 
     }
@@ -44,12 +41,10 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder> {
     public void onBindViewHolder(@NonNull Adaptery2.MyViewHolder holder, int position) {
 
         holder.title.setText(mData.get(position).getTitle());
-        holder.rate.setText(mData.get(position).getRating());
-
+        holder.descrip.setText(mData.get(position).getRating());
         Glide.with(mContext)
                 .load(mData.get(position).getImg())
                 .into(holder.img);
-
     }
 
     @Override
@@ -60,40 +55,28 @@ public class Adaptery2 extends RecyclerView.Adapter<Adaptery2.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
-        TextView rate;
+        TextView descrip;
         ImageView img;
-
 
         public MyViewHolder(@NonNull View itemView, RecyclerViewlnterface recyclerViewlnterface) {
             super(itemView);
 
             title = itemView.findViewById(R.id.titleTextView);
-            rate = itemView.findViewById(R.id.rateingTextView);
+            descrip = itemView.findViewById(R.id.descriptionTextView);
             img = itemView.findViewById(R.id.imageImageView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-
                     if (recyclerViewlnterface != null) {
-
                         int pos = getAdapterPosition();
-
                         if (pos != RecyclerView.NO_POSITION) {
-
                             recyclerViewlnterface.onItemClick(pos);
-
                         }
-
                     }
-
-
                 }
             });
-
-
         }
-
     }
 }

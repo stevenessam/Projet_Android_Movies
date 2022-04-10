@@ -21,9 +21,9 @@
                 android:id="@+id/textViewName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
@@ -35,28 +35,30 @@
                 android:layout_marginBottom="5dp"
                 android:padding="10dp"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="1dp"
-                android:background="@color/black"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:background="@color/black" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="405dp"
                 tools:srcCompat="@tools:sample/avatars" />
+
             <View
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="1dp"
-                android:background="@color/black"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:background="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +66,7 @@
                 android:layout_marginBottom="20dp"
                 android:text="Description"
                 android:textSize="34sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewName2"
@@ -73,14 +75,16 @@
                 android:layout_marginBottom="20dp"
                 android:padding="10dp"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <View
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="1dp"
-                android:background="@color/black"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:background="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +92,7 @@
                 android:layout_marginBottom="20dp"
                 android:text="Information"
                 android:textSize="34sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -99,60 +103,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
                     android:text="RATING"
                     android:textSize="17sp"
-                    android:layout_marginLeft="5dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/genreVide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rateVide"
-                    android:textSize="17sp"
-                    android:text="GENRES"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-             />
+                    android:text="GENRES"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/runVide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/genreVide"
-                    android:textSize="17sp"
-                    android:text="RUNTIME"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"/>
+                    android:text="RUNTIME"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/ageVide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/runVide"
-                    android:textSize="17sp"
-                    android:text="AGE RATING"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                     />
+                    android:text="AGE RATING"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/direcVide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ageVide"
-                    android:textSize="17sp"
-                    android:text="DIRECTOR"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    />
+                    android:text="DIRECTOR"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_star"
+                    android:layout_toLeftOf="@+id/rating"
 
-                    android:layout_toLeftOf="@+id/rating"/>
+                    app:srcCompat="@drawable/ic_star" />
 
                 <TextView
                     android:id="@+id/rating"
@@ -170,10 +171,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rating"
                     android:layout_alignParentRight="true"
-                    android:textSize="17sp"
                     android:layout_marginRight="5dp"
-                    android:textStyle="bold"
-                     />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -182,10 +182,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/genre"
                     android:layout_alignParentRight="true"
-                    android:textSize="17sp"
                     android:layout_marginRight="5dp"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/ageRat"
@@ -193,9 +192,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/hoursM"
                     android:layout_alignParentRight="true"
-                    android:textSize="17sp"
                     android:layout_marginRight="5dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -204,19 +203,19 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ageRat"
                     android:layout_alignParentRight="true"
-                    android:textSize="17sp"
                     android:layout_marginRight="5dp"
-                    android:textStyle="bold"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="1dp"
-                android:background="@color/black"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:background="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -225,15 +224,14 @@
                 android:layout_marginBottom="20dp"
                 android:text="Movie Trailer"
                 android:textSize="34sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btn"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:onClick="btnVideo"
-                android:src="@drawable/ic_yotube"
-                />
+                android:src="@drawable/ic_yotube" />
 
 
         </LinearLayout>

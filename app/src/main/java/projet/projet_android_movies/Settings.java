@@ -114,7 +114,6 @@ public class Settings extends AppCompatActivity {
 
 //------------------------------------Save name-------------------------------------------------------
 
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -139,5 +138,4 @@ public class Settings extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

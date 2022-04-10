@@ -38,7 +38,6 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
     int i = 0;
-
     ImageButton bt;
 
     @Override
@@ -48,8 +47,8 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
-
         BottomNavigationView bNV = findViewById(R.id.bottom_navMenu);
+
         bNV.setSelectedItemId(R.id.searchMovie);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -64,22 +63,16 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
                         startActivity(new Intent(getApplicationContext(), SearchMovie.class));
                         overridePendingTransition(0, 0);
                         return true;
-
-
                 }
-
                 return false;
             }
         });
 
         movieList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
-
-
     }
 
     public void btn(View v) {
-
         if (i == 0) {
             EditText editTextTitle = findViewById(R.id.editTextTitle);
             String titleText = editTextTitle.getText().toString();
@@ -88,19 +81,15 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
             getData.execute();
             i++;
         } else if (i == 1) {
-
             recreate();
-
             i = 0;
         }
-
     }
 
     public class GetData extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... strings) {
-
             String current = "";
             try {
                 URL url;
@@ -108,35 +97,25 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
                 try {
                     url = new URL(JSON_URL);
                     urlConnection = (HttpURLConnection) url.openConnection();
-
                     InputStream is = urlConnection.getInputStream();
                     InputStreamReader isr = new InputStreamReader(is);
-
                     int data = isr.read();
                     while (data != -1) {
-
                         current += (char) data;
                         data = isr.read();
-
                     }
                     return current;
-
-
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
-
                 } finally {
                     if (urlConnection != null) {
-
                         urlConnection.disconnect();
-
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-
             }
             return current;
         }
@@ -156,44 +135,27 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
                     model.setTitle(jsonObject1.getString("title"));
                     model.setRating(jsonObject1.getString("description"));
                     model.setImg(jsonObject1.getString("image"));
-
                     movieList.add(model);
-
                 }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             PutDataIntoRecyclerView(movieList);
-
         }
     }
 
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
-
-
         Adaptery2 adaptery = new Adaptery2(this, movieList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recyclerView.setAdapter(adaptery);
-
     }
-
 
     @Override
     public void onItemClick(int position) {
-
-//        System.out.println(movieList.get(position).getId());
-
         Intent i = new Intent(SearchMovie.this, MoviePage.class);
         i.putExtra("Id", movieList.get(position).getId());
         i.putExtra("Title", movieList.get(position).getTitle());
         i.putExtra("Img", movieList.get(position).getImg());
-
         startActivity(i);
-
-
     }
-
 }

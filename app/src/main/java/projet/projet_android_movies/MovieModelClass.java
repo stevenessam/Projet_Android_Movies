@@ -8,6 +8,9 @@ public class MovieModelClass {
     String img;
     String video;
 
+    public MovieModelClass() {
+    }
+
     public MovieModelClass(String id, String title, String description, String rating, String img, String video) {
         this.id = id;
         this.title = title;
@@ -39,9 +42,6 @@ public class MovieModelClass {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public MovieModelClass() {
     }
 
     public String getTitle() {
