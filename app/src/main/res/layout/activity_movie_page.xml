@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="Information"
+                android:text="@string/informationPageMovie"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="5dp"
-                    android:text="RATING"
+                    android:text="@string/ratingPageMovie"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -114,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rateVide"
                     android:layout_marginLeft="5dp"
-                    android:text="GENRES"
+                    android:text="@string/genresPageMovie"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/genreVide"
                     android:layout_marginLeft="5dp"
-                    android:text="RUNTIME"
+                    android:text="@string/runtimePageMovie"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/runVide"
                     android:layout_marginLeft="5dp"
-                    android:text="AGE RATING"
+                    android:text="@string/ageRatingPageMovie"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ageVide"
                     android:layout_marginLeft="5dp"
-                    android:text="DIRECTOR"
+                    android:text="@string/directorpagemovie"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:text="Movie Trailer"
+                android:text="@string/trailerPageMovie"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 

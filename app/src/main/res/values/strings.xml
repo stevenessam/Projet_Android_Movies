@@ -3,4 +3,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="descriptionMoviePage">DESCRIPTION</string>
+    <string name="topMovies">TOP MOVIES</string>
+    <string name="informationPageMovie">INFROMATION</string>
+    <string name="ratingPageMovie">RATING</string>
+    <string name="genresPageMovie">GENRES</string>
+    <string name="runtimePageMovie">RUNTIME</string>
+    <string name="ageRatingPageMovie">AGE RATING</string>
+    <string name="directorpagemovie">DIRECTOR</string>
+    <string name="trailerPageMovie">MOVIE TRAILER</string>
+    <string name="welcome">WELCOME</string>
+    <string name="settingsPageName">SETTINGS</string>
+    <string name="saveNameBtn">SAVE NAME</string>
+    <string name="wifibtn">WIFI/3G</string>
+    <string name="internetconnection">INTERNET CONNECTION</string>
+    <string name="appthemetv">APP THEME</string>
 </resources>

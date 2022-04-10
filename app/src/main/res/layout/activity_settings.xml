@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_marginTop="32dp"
-        android:text="Welcome"
+        android:text="@string/welcome"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:layout_column="1"
         android:layout_marginStart="5dp"
         android:layout_marginTop="180dp"
-        android:text="SETTINGS"
+        android:text="@string/settingsPageName"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:text="Save Name" />
+                android:text="@string/saveNameBtn" />
         </TableRow>
 
         <TableRow
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="INTERNET CONNECTION"
+                android:text="@string/internetconnection"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="4"
                 android:layout_span="1"
-                android:text="WIFI/3G" />
+                android:text="@string/wifibtn" />
 
 
         </TableRow>
@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="APP THEME"
+                android:text="@string/appthemetv"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
