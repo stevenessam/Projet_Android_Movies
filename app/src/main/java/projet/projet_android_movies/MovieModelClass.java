@@ -1,6 +1,7 @@
 package projet.projet_android_movies;
 
 public class MovieModelClass {
+    //déclaration des variables
     String id;
     String title;
     String description;
@@ -8,9 +9,11 @@ public class MovieModelClass {
     String img;
     String video;
 
+    //constructeur vide
     public MovieModelClass() {
     }
 
+    //constructeur avec tous les paramétres
     public MovieModelClass(String id, String title, String description, String rating, String img, String video) {
         this.id = id;
         this.title = title;
@@ -20,6 +23,7 @@ public class MovieModelClass {
         this.video = video;
     }
 
+    //les getters et les setters
     public String getVideo() {
         return video;
     }

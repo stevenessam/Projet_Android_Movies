@@ -45,6 +45,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
 
+        /**
+         * declaration de la varialble bNV de type {@link BottomNavigationView}
+         * cette methode permet de deplacer l utilisateur vers les diffentes page
+         * comme page home et page recherche film
+         *
+         */
         BottomNavigationView bNV = findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.mainActivity);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -72,30 +78,53 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         getData.execute();
     }
 
+    /**
+     * methode qui permet de cree le menu cde navigation
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_item, menu);
         return true;
     }
 
+    /**
+     * permet de de retourner a l arrier quand on clique sur la flesh de la action bar
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+        /**
+         * la redirection vers Settings si on clique sur l'item de menu qui a l'id :action_settings
+         */
         if (id == R.id.action_settings) {
             Intent intent = new Intent(MainActivity.this, Settings.class);
             startActivity(intent);
-
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void btn(View v) {
 
+
+    /**
+     * boutton pour la redirection vers SearchMovie
+     * @param v
+     */
+    public void btn(View v) {
         Intent intent = new Intent(MainActivity.this, SearchMovie.class);
         startActivity(intent);
     }
+
+    /**
+     * GetData est la class dans la quelle est définie
+     * la tache asynchrone qui nous permet de récupérer via url
+     * les films
+     */
 
     public class GetData extends AsyncTask<String, String, String> {
         @Override
@@ -134,6 +163,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
             return current;
         }
 
+        /**
+         * dans la fonction  onPostExecute on passe en parametre une variable name de type string
+         * ensuite dans l'url on le concatene pour trouver les films
+         * on recupére les données sous forme de json
+         */
+
         @Override
         protected void onPostExecute(String s) {
 
@@ -142,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
                 JSONArray jsonArray = jsonObject.getJSONArray("items");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
+                    // instanciation d'un MovieModelClass
                     MovieModelClass model = new MovieModelClass();
                     model.setId(jsonObject1.getString("id"));
                     model.setTitle(jsonObject1.getString("title"));
@@ -166,9 +201,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
     }
 
+
+
+    /**
+     *  En cliquant sur un film l'Intent i nous renvoie dans la page  MoviePage ainsi que l'id, le title,et l'image du film
+     * @param position
+     */
     @Override
     public void onItemClick(int position) {
+        // instanciation d'un Intent
         Intent i = new Intent(MainActivity.this, MoviePage.class);
+        //transfert les données vers MoviePage
         i.putExtra("Id", movieList.get(position).getId());
         i.putExtra("Title", movieList.get(position).getTitle());
         i.putExtra("Img", movieList.get(position).getImg());

@@ -49,6 +49,13 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
         BottomNavigationView bNV = findViewById(R.id.bottom_navMenu);
 
+
+        /**
+         * declaration de la varialble bNV de type {@link BottomNavigationView}
+         * cette methode permet de deplacer l utilisateur vers les diffentes page
+         * comme page home et page recherche film
+         *
+         */
         bNV.setSelectedItemId(R.id.searchMovie);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,6 +79,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         recyclerView = findViewById(R.id.recyclerView);
     }
 
+    // le bouton de recherche
     public void btn(View v) {
         if (i == 0) {
             EditText editTextTitle = findViewById(R.id.editTextTitle);
@@ -86,6 +94,11 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         }
     }
 
+    /**
+     * GetData est la class dans la quelle est définie
+     * la tache asynchrone qui nous permet de récupérer via url
+     * les films
+     */
     public class GetData extends AsyncTask<String, String, String> {
 
         @Override
@@ -120,6 +133,11 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
             return current;
         }
 
+        /**
+         * dans la fonction  onPostExecute on passe en parametre une variable name de type string
+         * ensuite dans l'url on le concatene pour trouver les films
+         * on recupére les données sous forme de json
+         */
 
         @Override
         protected void onPostExecute(String s) {
@@ -129,7 +147,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
                 JSONArray jsonArray = jsonObject.getJSONArray("results");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
+                    // instanciation d'un MovieModelClass et récupération des données
                     MovieModelClass model = new MovieModelClass();
                     model.setId(jsonObject1.getString("id"));
                     model.setTitle(jsonObject1.getString("title"));
@@ -144,12 +162,13 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         }
     }
 
+    //Affichage des films dans un recyclerview
     private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
         Adaptery2 adaptery = new Adaptery2(this, movieList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adaptery);
     }
-
+    // en cliquant sur un film l'Intent i nous renvoie dans la page  MoviePage ainsi que l'id, le title,et l'image du film
     @Override
     public void onItemClick(int position) {
         Intent i = new Intent(SearchMovie.this, MoviePage.class);
