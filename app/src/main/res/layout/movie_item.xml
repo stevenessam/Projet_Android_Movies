@@ -28,7 +28,6 @@
             android:layout_below="@+id/imageImageView"
             android:gravity="center"
             android:hyphenationFrequency="none"
-            android:text="TextView"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -54,7 +53,6 @@
                     android:id="@+id/rateingTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="TextView"
                     android:textSize="17sp"
                     android:textStyle="bold" />
             </LinearLayout>

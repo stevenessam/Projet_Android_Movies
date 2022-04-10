@@ -41,7 +41,6 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         wifiPanel = findViewById(R.id.wifiBtn);
-        //onClickListeners for the buttons
         wifiPanel.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
