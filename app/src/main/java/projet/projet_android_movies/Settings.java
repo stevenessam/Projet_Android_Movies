@@ -84,7 +84,8 @@ public class Settings extends AppCompatActivity {
         updateViews();
 
 //------------------------------------Save name-------------------------------------------------------
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
     }
 //------------------------------------Save name-------------------------------------------------------

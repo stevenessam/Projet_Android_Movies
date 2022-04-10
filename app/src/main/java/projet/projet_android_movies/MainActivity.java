@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 
 
-    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_dgd1pq04";
+    private static String JSON_URL="https://imdb-api.com/en/API/MostPopularMovies/k_b839wwcj";
 
     List<MovieModelClass>   movieList;
     RecyclerView recyclerView;
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
+
         BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.mainActivity);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -56,7 +56,9 @@ public class MoviePage extends AppCompatActivity {
 
         ImageView imgV = findViewById(R.id.imageView);
         textV.setText(title);
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
 
         Glide.with(context)
                 .load(image)
@@ -66,7 +68,6 @@ public class MoviePage extends AppCompatActivity {
         requestTask.execute(data);
 
 
-        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -81,33 +82,6 @@ public class MoviePage extends AppCompatActivity {
     }
 
 
-
-//-------------------Changement des couleur-------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//---------------End----Changement des couleur-------------------------------------------------------
-
-
-
-
     private class RequestTask extends AsyncTask<String, String, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
 //  lance la requète
@@ -119,7 +93,7 @@ public class MoviePage extends AppCompatActivity {
             String response = "";
             try {
                 HttpURLConnection connection = null;
-                URL url = new URL("https://imdb-api.com/en/API/Title/k_dgd1pq04 /" + name+"/Trailer,");
+                URL url = new URL("https://imdb-api.com/en/API/Title/k_b839wwcj/" + name+"/Trailer,");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
                 InputStream inputStream = connection.getInputStream();

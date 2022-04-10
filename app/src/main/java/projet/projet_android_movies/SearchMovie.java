@@ -45,7 +45,8 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_movie);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#f0c528\">" + getString(R.string.app_name) + "</font>"));
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_play_arrow_24);
 
         BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.searchMovie);
@@ -83,7 +84,7 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
         EditText editTextTitle = findViewById(R.id.editTextTitle);
         String titleText= editTextTitle.getText().toString();
-        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_dgd1pq04/"+titleText;
+        JSON_URL="https://imdb-api.com/en/API/SearchMovie/k_b839wwcj/"+titleText;
         GetData getData = new GetData();
         getData.execute() ;
 
