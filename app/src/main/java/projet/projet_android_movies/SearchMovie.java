@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,10 +37,9 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
     private static String JSON_URL;
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
+    int i = 0;
 
-
-    Button bt1;
-    Button bt2;
+    ImageButton bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,6 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
             }
         });
 
-
         movieList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -79,27 +80,19 @@ public class SearchMovie extends AppCompatActivity implements RecyclerViewlnterf
 
     public void btn(View v) {
 
-        EditText editTextTitle = findViewById(R.id.editTextTitle);
-        String titleText = editTextTitle.getText().toString();
-        JSON_URL = "https://imdb-api.com/en/API/SearchMovie/k_b839wwcj/" + titleText;
-        GetData getData = new GetData();
-        getData.execute();
+        if (i == 0) {
+            EditText editTextTitle = findViewById(R.id.editTextTitle);
+            String titleText = editTextTitle.getText().toString();
+            JSON_URL = "https://imdb-api.com/en/API/SearchMovie/k_k6eancl2/" + titleText;
+            GetData getData = new GetData();
+            getData.execute();
+            i++;
+        } else if (i == 1) {
 
-        bt1 = (Button) findViewById(R.id.buttonSearch);
-        bt2 = (Button) findViewById(R.id.buttonSearchAgain);
-        bt1.setVisibility(View.INVISIBLE);
-        bt2.setVisibility(View.VISIBLE);
+            recreate();
 
-
-    }
-
-    public void btn2(View v) {
-
-
-        bt1.setVisibility(View.VISIBLE);
-        bt2.setVisibility(View.INVISIBLE);
-        recreate();
-
+            i = 0;
+        }
 
     }
 
