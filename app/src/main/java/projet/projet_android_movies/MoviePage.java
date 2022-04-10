@@ -32,6 +32,13 @@ public class MoviePage extends AppCompatActivity {
     Context context;
     TextView textViewName2;
     String link;
+    TextView textVRate;
+    TextView textVHours;
+    TextView textVYear;
+    TextView textVDirector;
+    TextView textVageRat;
+    TextView textVgenre;
+
     ArrayList<MovieModelClass> movieList = new ArrayList<MovieModelClass>();
 
     @Override
@@ -72,6 +79,30 @@ public class MoviePage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+//-------------------Changement des couleur-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------End----Changement des couleur-------------------------------------------------------
 
 
 
@@ -159,17 +190,23 @@ public class MoviePage extends AppCompatActivity {
 
             textViewName2 =findViewById(R.id.textViewName2);
             textViewName2.setText(descPlot);
-            TextView textVRate=findViewById(R.id.rating);
+
+            textVRate=findViewById(R.id.rating);
             textVRate.setText(rateM);
-            TextView textVHours=findViewById(R.id.hoursM);
+
+            textVHours=findViewById(R.id.hoursM);
             textVHours.setText(movieH);
-            TextView textVYear=findViewById(R.id.yearM);
+
+            textVYear=findViewById(R.id.yearM);
             textVYear.setText(movieY);
-            TextView textVDirector=findViewById(R.id.director);
+
+            textVDirector=findViewById(R.id.director);
             textVDirector.setText(movieD);
-            TextView textVageRat=findViewById(R.id.ageRat);
+
+            textVageRat=findViewById(R.id.ageRat);
             textVageRat.setText(movieAR);
-            TextView textVgenre=findViewById(R.id.genre);
+
+            textVgenre=findViewById(R.id.genre);
             textVgenre.setText(movieG);
 
 
