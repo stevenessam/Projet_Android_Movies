@@ -87,6 +87,7 @@
                 android:backgroundTint="@android:color/black"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:hint="Enter Your Name"
                 android:scrollHorizontally="true" />
 
 
