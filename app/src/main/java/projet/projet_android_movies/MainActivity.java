@@ -3,8 +3,10 @@ package projet.projet_android_movies;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         BottomNavigationView bNV=findViewById(R.id.bottom_navMenu);
         bNV.setSelectedItemId(R.id.mainActivity);
         bNV.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,6 +74,36 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewlnter
 
 
     }
+
+
+
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        return true;
+}
+
+
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+
+            int id = item.getItemId();
+            if (id==R.id.action_settings){
+                Intent intent = new Intent( MainActivity.this,Settings.class);
+                startActivity(intent); ;
+                return true;
+            }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 
 
     public void btn (View v){
