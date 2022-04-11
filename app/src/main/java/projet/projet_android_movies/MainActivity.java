@@ -32,7 +32,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements RecyclerViewlnterface {
 
 
-    private static String JSON_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_dl23ichl";
+    private static String JSON_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_7pc3ijdc";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
